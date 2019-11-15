@@ -20,19 +20,62 @@ public class ATM {
     
     public ATM() {
         this.in = new Scanner(System.in);
-        
+        /*
         try {
 			this.bank = new Bank();
 		} catch (IOException e) {
 			// cleanup any resources (i.e., the Scanner) and exit
-		}
+        }
+        
+        */
+        
+        activeAccount = new BankAccount(1234, 123456789L, 0.0, new User("Ryan", "Wilson"));
     }
     
+    public void startup(){
+        System.out.println("Welcome to the AIT ATM!");
+
+        System.out.print("Account No.: ");
+        long accountNo = in.nextLong();
+
+        System.out.print("PIN        : ");
+        int pin = in.nextInt();
+
+        if(accountNo == activeAccount.getAccountNo() && pin == activeAccount.getPin()){
+            System.out.println("\nHello, again, " + activeAccount.getAccountHolder().getFirstName() + "!\n");
+            
+            System.out.println("[1] View balance");
+            System.out.println("[2] Deposit money");
+            System.out.println("[3] Withdraw money");
+            
+            int selection = in.nextInt();
+            switch (selection) {
+            	case 1: 
+            		System.out.print("\nCurrent balance: " +  activeAccount.getBalance());
+            		break;
+            	case 2:
+            		System.out.print("\nEnter amount: ");
+            		double depositAmt = in.nextDouble();
+            		break;
+            	case 3:
+            		System.out.print("\nEnter amount: ");
+            		double withdrawAmt = in.nextDouble();
+            		break;
+            	default:
+            		System.out.println("\nInvalid selection.\n");
+            		break;
+            }
+        } else {
+            System.out.println("\nInvalid account number and/or PIN.\n");
+        }
+    }
     /*
      * Application execution begins here.
      */
     
     public static void main(String[] args) {
         ATM atm = new ATM();
+        
+        atm.startup();
     }
 }
