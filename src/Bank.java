@@ -162,7 +162,7 @@ public class Bank {
         return accounts;
     }
     
-    /*
+    /* 
      * Generates the next sequential account number.
      * 
      * @return the next account number

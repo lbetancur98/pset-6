@@ -2,10 +2,13 @@ public class User {
     
     private String firstName;
     private String lastName;
+    private String accountHolder;
+    
 
     public User(String firstName,String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.accountHolder = firstName + " " + lastName;
     }
 
     public String getFirstName(){
