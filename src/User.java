@@ -19,6 +19,10 @@ public class User {
         return lastName;
     }
     
+    public String getAccoutnHolder() {
+    	return accountHolder;
+    }
+    
     ////////////////////////////////////////////////////////////////////////////
     //                                                                        //
     // Refer to the Simple ATM tutorial to fill in the details of this class. //
