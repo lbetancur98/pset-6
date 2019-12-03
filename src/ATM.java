@@ -219,6 +219,14 @@ public class ATM {
 		return false;
 	}
     
+    public boolean isNumeric(String testStr) {
+		try {
+			int integer = Integer.parseInt(testStr);
+		} catch (NumberFormatException | NullPointerException nfe) {
+			return false;
+		}
+		return true;
+	}
     
     public static void main(String[] args) {
         ATM atm = new ATM();
