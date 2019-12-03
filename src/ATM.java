@@ -192,6 +192,13 @@ public class ATM {
 		bank.save();
 	}
     
+    public boolean isValidFirst(int min, int max, String firstName) {
+		if (firstName != null && firstName.length() >= min && firstName.length() <= max) {
+			return true;
+		}
+		return false;
+	}
+    
     
     public static void main(String[] args) {
         ATM atm = new ATM();
