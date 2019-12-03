@@ -206,6 +206,19 @@ public class ATM {
 		return false;
 	}
     
+    public boolean isValidAcctNo(long min, long max, String accountNo) {
+		try {
+			transferAccount = bank.getAccount(Long.parseLong(accountNo));
+			if (Long.parseLong(accountNo) == -1
+					|| Long.parseLong(accountNo) >= min && Long.parseLong(accountNo) <= max && isNumeric(accountNo)) {
+				return true;
+			}
+		} catch (NumberFormatException | NullPointerException nfe) {
+			return false;
+		}
+		return false;
+	}
+    
     
     public static void main(String[] args) {
         ATM atm = new ATM();
