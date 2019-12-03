@@ -167,6 +167,30 @@ public class ATM {
 		}
 	}
    
+    public void createAccount() {
+		
+		System.out.print("\nFirst Name: ");
+		String firstName = in.next();
+		while (!isValidFirst(1, 20, firstName)) {
+			System.out.print("Invalid entry. First Name: ");
+			firstName = in.next();
+		}
+		System.out.print("Last Name: ");
+		String lastName = in.next();
+		while (!isValidLast(1, 30, lastName)) {
+			System.out.print("Invalid entry. Last Name: ");
+			lastName = in.next();
+		}
+		System.out.print("Pin: ");
+		int pin = in.nextInt();
+		while (!isValidPin(1000, 9999, pin)) {
+			System.out.print("Invalid entry. Last Name: ");
+			pin = in.nextInt();
+		}
+		activeAccount = bank.createAccount(pin, new User(firstName, lastName));
+		System.out.print("\nThank you. Your account number is " + activeAccount.getAccountNo() + ".\nPlease login to access your newly created account.\n");
+		bank.save();
+	}
     
     
     public static void main(String[] args) {
