@@ -14,14 +14,14 @@ public class BankAccount {
     public BankAccount(int pin, long accountNo, double balance, User accountHolder){
         this.pin = pin;
         this.accountNo = accountNo;
-        this.balance = 0.0;
+        this.balance = balance;
         this.accountHolder = accountHolder;
     }
     
     public BankAccount(int pin, User accountHolder) {
     	this.pin = pin;
-    	this.accountNo = accountNo;
-    	this.balance = balance;
+    	this.accountNo = BankAccount.prevAccountNo++;
+    	this.balance = 0.0;
     	this.accountHolder = accountHolder;                                                            
     }
 
@@ -63,7 +63,7 @@ public class BankAccount {
 	   if(amount <0 ) {
 		   return ATM.INVALID;
 	   } else if( amount > balance) {
-		   ATM.INSUFFICIENT;
+		   return ATM.INSUFFICIENT;
 	   } else {
 		   balance = balance - amount;
 	   }
