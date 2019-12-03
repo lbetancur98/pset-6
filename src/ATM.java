@@ -69,6 +69,7 @@ public class ATM {
 	            	switch (getSelection()) {
 		            	case VIEW: showBalance();bank.save();break;
 		            	case DEPOSIT: deposit();bank.save();break;
+		            	case TRANSFER: transfer();bank.save();break;
 		            	case WITHDRAW: withdraw();bank.save();break;
 		            	case LOGOUT: validLogin = false;startup();break;
 		            	default:
@@ -218,6 +219,8 @@ public class ATM {
 		}
 		return false;
 	}
+    
+    
     
     public boolean isNumeric(String testStr) {
 		try {
