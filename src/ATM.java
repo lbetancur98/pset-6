@@ -228,6 +228,14 @@ public class ATM {
 		return true;
 	}
     
+    public void shutdown() {
+		if (in != null) {
+			in.close();
+		}
+		System.out.println("\nGoodbye!");
+		System.exit(0);
+	}
+    
     public static void main(String[] args) {
         ATM atm = new ATM();
         
