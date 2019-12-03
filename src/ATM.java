@@ -115,7 +115,10 @@ public class ATM {
     	int status = activeAccount.deposit(amount);
     	if(status == ATM.INVALID) {
     		System.out.println("\nDeposit rejected. Amount must be greater than $0.00\n");
-    	} else if( status == ATM.SUCCESS) {
+    	} else if (activeAccount.getDoubleBalance() + amount > 999999999999.99) {
+			System.out.println("\nDeposit rejected. Amount would cause balance to exceed $999,999,999,999.99.\n");
+			activeAccount.withdraw(amount);
+		} else if( status == ATM.SUCCESS) {
     		System.out.println("\nDeposit accepted.\n");
     	}
     	  	

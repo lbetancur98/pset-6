@@ -33,7 +33,7 @@ public class BankAccount {
         return accountNo;
     }
 
-    public double getDoubleBakance() {
+    public double getDoubleBalance() {
     	return balance;
     }
     
