@@ -10,11 +10,17 @@ public class ATM {
     public static final int VIEW = 1;
     public static final int DEPOSIT = 2;
     public static final int WITHDRAW = 3;
-    public static final int LOGOUT = 4;
+    public static final int TRANSFER = 4;
+    public static final int LOGOUT = 5;
     
     public static final int INVALID = 0;
     public static final int INSUFFICIENT = 1;
     public static final int SUCCESS = 2;
+    
+    public static final int FIRST_NAME_MIN_WIDTH = 1;
+	public static final int FIRST_NAME_WIDTH = 20;
+	public static final int LAST_NAME_MIN_WIDTH = 1;
+	public static final int LAST_NAME_WIDTH = 30;
     
     ////////////////////////////////////////////////////////////////////////////
     //                                                                        //
