@@ -199,6 +199,13 @@ public class ATM {
 		return false;
 	}
     
+    public boolean isValidLast(int min, int max, String lastName) {
+		if (lastName != null && lastName.length() <= max && lastName.length() >= min) {
+			return true;
+		}
+		return false;
+	}
+    
     
     public static void main(String[] args) {
         ATM atm = new ATM();
