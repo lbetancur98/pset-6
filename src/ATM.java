@@ -35,14 +35,14 @@ public class ATM {
     
     public ATM() {
         this.in = new Scanner(System.in);
-        /*
+        
         try {
 			this.bank = new Bank();
 		} catch (IOException e) {
 			// cleanup any resources (i.e., the Scanner) and exit
         }
         
-        */
+        
         
         activeAccount = new BankAccount(1234, 123456789L, 0.00, new User("Ryan", "Wilson"));
     }
@@ -60,20 +60,30 @@ public class ATM {
 	        if(isValidLogin(accountNo, pin)){
 	            System.out.println("\nHello, again, " + activeAccount.getAccountHolder().getFirstName() + "!\n");
 	            
+	           
+	            
+	            
 	            boolean validLogin = true;
 	            while (validLogin) {
 	            	switch (getSelection()) {
-		            	case VIEW: showBalance();break;
-		            	case DEPOSIT: deposit();break;
-		            	case WITHDRAW: withdraw();break;
-		            	case LOGOUT: validLogin = false;break;
+		            	case VIEW: showBalance();bank.save();break;
+		            	case DEPOSIT: deposit();bank.save();break;
+		            	case WITHDRAW: withdraw();bank.save();break;
+		            	case LOGOUT: validLogin = false;startup();break;
 		            	default:
 		            		System.out.println("\nInvalid selection.\n");
 		            		break;
 		            }
 	            }
 	        } else {
-	            System.out.println("\nInvalid account number and/or PIN.\n");
+	        	if( accountNo == -1 && pin == -1) {
+	        		System.out.println("h");
+	        		shutdown();
+	        	} else {
+	        		System.out.println("\nInvalid account number and/or PIN.\n");
+	        		startup();
+	        	}
+	            
 	        }
         }
         
