@@ -220,7 +220,12 @@ public class ATM {
 		return false;
 	}
     
-    
+    public boolean isValidPin(int min, int max, int pin) {
+		if (pin == -1 || pin >= min && pin <= max) {
+			return true;
+		}
+		return false;
+	}
     
     public boolean isNumeric(String testStr) {
 		try {
